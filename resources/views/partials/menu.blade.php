@@ -143,6 +143,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('about_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.abouts.index") }}" class="nav-link {{ request()->is("admin/abouts") || request()->is("admin/abouts/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-building">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.about.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                             @can('service_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.services.index") }}" class="nav-link {{ request()->is("admin/services") || request()->is("admin/services/*") ? "active" : "" }}">

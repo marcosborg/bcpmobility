@@ -29,4 +29,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Slide
     Route::post('slides/media', 'SlideApiController@storeMedia')->name('slides.storeMedia');
     Route::apiResource('slides', 'SlideApiController');
+
+    // About
+    Route::post('abouts/media', 'AboutApiController@storeMedia')->name('abouts.storeMedia');
+    Route::apiResource('abouts', 'AboutApiController');
 });

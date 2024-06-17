@@ -73,6 +73,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('slides/ckmedia', 'SlideController@storeCKEditorImages')->name('slides.storeCKEditorImages');
     Route::resource('slides', 'SlideController');
 
+    // About
+    Route::delete('abouts/destroy', 'AboutController@massDestroy')->name('abouts.massDestroy');
+    Route::post('abouts/media', 'AboutController@storeMedia')->name('abouts.storeMedia');
+    Route::post('abouts/ckmedia', 'AboutController@storeCKEditorImages')->name('abouts.storeCKEditorImages');
+    Route::resource('abouts', 'AboutController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
