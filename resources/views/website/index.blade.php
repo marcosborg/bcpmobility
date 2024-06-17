@@ -132,30 +132,33 @@
 
         <!-- ======= About Section ======= -->
         <section id="about" class="about">
+            @foreach (\App\Models\About::all() as $item)
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>About Us</h2>
-                    <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam
-                        voluptas
-                        asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+                    <h2>{{ $item->title }}</h2>
+                    <p>{{ $item->subtitle }}</p>
                 </div>
 
                 <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
 
                     <div class="col-lg-5">
                         <div class="about-img">
-                            <img src="/website/assets/img/about.jpg" class="img-fluid" alt="">
+                            <img src="{{ $item->image->getUrl() }}" class="img-fluid" alt="">
                         </div>
                     </div>
 
                     <div class="col-lg-7">
-
+                        <div class="mt-5">
+                            {!! $item->text !!}
+                        </div>
                     </div>
 
                 </div>
 
             </div>
+            @endforeach
+
         </section><!-- End About Section -->
 
         <!-- ======= Featured Services Section ======= -->
@@ -177,65 +180,72 @@
 
         <!-- ======= Call To Action Section ======= -->
         <section id="cta" class="cta">
+            @foreach (\App\Models\Ctum::all() as $item)
             <div class="container" data-aos="zoom-out">
 
                 <div class="row g-5">
 
                     <div
                         class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
-                        <h3>Alias sunt quas <em>Cupiditate</em> oluptas hic minima</h3>
-                        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                            anim id est
-                            laborum.</p>
-                        <a class="cta-btn align-self-start" href="#">Call To Action</a>
+                        <h3>{{ $item->title }}</h3>
+                        <p>{{ $item->text }}</p>
+                        <a class="cta-btn align-self-start" href="{{ $item->link }}">{{ $item->button }}</a>
                     </div>
 
                     <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
                         <div class="img">
-                            <img src="/website/assets/img/cta.jpg" alt="" class="img-fluid">
+                            <img src="{{ $item->image->getUrl() }}" alt="" class="img-fluid">
                         </div>
                     </div>
 
                 </div>
 
             </div>
+            @endforeach
+
         </section><!-- End Call To Action Section -->
 
         <!-- ======= On Focus Section ======= -->
         <section id="onfocus" class="onfocus">
-            <div class="container-fluid p-0" data-aos="fade-up">
-
-                <div class="row g-0">
-                    <div class="col-lg-6 video-play position-relative"></div>
-                    <div class="col-lg-6">
-                        <div class="content d-flex flex-column justify-content-center h-100">
-                            <h3>Voluptatem dignissimos provident quasi corporis</h3>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et
-                                dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</li>
-                                <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in
-                                    voluptate velit.</li>
-                                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore
-                                    eu fugiat nulla
-                                    pariatur.</li>
-                            </ul>
-                            <a href="#" class="read-more align-self-start"><span>Read More</span><i
-                                    class="bi bi-arrow-right"></i></a>
+            <!-- Slider main container -->
+            <div class="swiper swiper-slides">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @foreach (\App\Models\Slide::all() as $item)
+                    <div class="swiper-slide">
+                        <div class="container-fluid p-0" data-aos="fade-up">
+                            <div class="row g-0">
+                                <div class="col-md-6"
+                                    style="background: url('{{ $item->image->getUrl() }}'); background-size: cover; backgroud-position: center center;">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="content d-flex flex-column justify-content-center h-100">
+                                        <h3>{{ $item->title }}</h3>
+                                        <p class="fst-italic">
+                                            {{ $item->subtitle }}
+                                        </p>
+                                        <p>{{ $item->text }}</p>
+                                        <a href="{{ $item->link }}" class="read-more align-self-start"><span>{{
+                                                $item->button }}</span><i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
 
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
             </div>
+
         </section><!-- End On Focus Section -->
 
         <!-- ======= Contact Section ======= -->
@@ -251,28 +261,19 @@
 
             </div>
 
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                    frameborder="0" allowfullscreen></iframe>
-            </div><!-- End Google Maps -->
-
             <div class="container">
 
-                <div class="row gy-5 gx-lg-5">
-
-                    <div class="col-lg-4">
-
+                <div class="row">
+                    @foreach (\App\Models\Contact::all() as $item)
+                    <div class="col-md-6 col">
                         <div class="info">
-                            <h3>Get in touch</h3>
-                            <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia
-                                commodi minus.</p>
-
+                            <h3>{{ $item->title }}</h3>
+                            <p>{{ $item->subtitle }}</p>
                             <div class="info-item d-flex">
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h4>Location:</h4>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>{{ $item->location }}</p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -280,7 +281,7 @@
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h4>Email:</h4>
-                                    <p>info@example.com</p>
+                                    <p>{{ $item->email }}</p>
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -288,15 +289,34 @@
                                 <i class="bi bi-phone flex-shrink-0"></i>
                                 <div>
                                     <h4>Call:</h4>
-                                    <p>+1 5589 55488 55</p>
+                                    <p>{{ $item->call }}</p>
                                 </div>
                             </div><!-- End Info Item -->
-
+                            <div class="map mt-5">
+                                {!! $item->google !!}
+                            </div><!-- End Google Maps -->
                         </div>
 
                     </div>
+                    @endforeach
+                </div>
 
-                    <div class="col-lg-8">
+            </div>
+
+            <div class="container mt-5">
+
+                <div class="section-header">
+                    <h2>Envie o seu pedido</h2>
+                    <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad
+                        dolores
+                        adipisci aliquam.</p>
+                </div>
+
+            </div>
+            <div class="container mt-5">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-8">
+
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="col-md-6 form-group">
@@ -323,9 +343,7 @@
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
                     </div><!-- End Contact Form -->
-
                 </div>
-
             </div>
         </section><!-- End Contact Section -->
 
@@ -340,24 +358,24 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-info">
-                            <h3>bcp mobility</h3>
+                            <img src="/website/assets/img/logo-white.png" width="200">
+                            @foreach (\App\Models\Contact::limit(1)->get() as $item)
                             <p>
-                                A108 Adam Street <br>
-                                NY 535022, USA<br><br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> info@example.com<br>
+                                {{ $item->loacation }}<br><br>
+                                <strong>Phone:</strong> {{ $item->call }}<br>
+                                <strong>Email:</strong> {{ $item->email }}<br>
                             </p>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="/">Home</a></li>
+                            @foreach (\App\Models\Menu::all() as $item)
+                            <li><i class="bi bi-chevron-right"></i> <a href="{{ $item->link }}">{{ $item->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
 

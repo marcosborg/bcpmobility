@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Fires the scrollto function on click to links .scrollto
    */
   let selectScrollto = document.querySelectorAll('.scrollto');
-  selectScrollto.forEach(el => el.addEventListener('click', function(event) {
+  selectScrollto.forEach(el => el.addEventListener('click', function (event) {
     if (document.querySelector(this.hash)) {
       event.preventDefault();
 
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const mobileNavToogle = document.querySelector('.mobile-nav-toggle');
   if (mobileNavToogle) {
-    mobileNavToogle.addEventListener('click', function(event) {
+    mobileNavToogle.addEventListener('click', function (event) {
       event.preventDefault();
 
       document.querySelector('body').classList.toggle('mobile-nav-active');
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
   navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       if (document.querySelector('.mobile-nav-active')) {
         event.preventDefault();
         this.classList.toggle('active');
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
-    const togglescrollTop = function() {
+    const togglescrollTop = function () {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
     window.addEventListener('load', togglescrollTop);
@@ -197,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
-      menuFilters.forEach(function(el) {
-        el.addEventListener('click', function() {
+      menuFilters.forEach(function (el) {
+        el.addEventListener('click', function () {
           document.querySelector('.portfolio-isotope .portfolio-flters .filter-active').classList.remove('filter-active');
           this.classList.add('filter-active');
           portfolioIsotope.arrange({
@@ -296,4 +296,26 @@ document.addEventListener('DOMContentLoaded', () => {
     aos_init();
   });
 
+});
+
+const swiper = new Swiper('.swiper-slides', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
 });
