@@ -31,6 +31,7 @@ class Option extends Model implements HasMedia
         'title',
         'text',
         'icon',
+        'longtext',
         'created_at',
         'updated_at',
         'deleted_at',

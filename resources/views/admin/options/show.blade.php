@@ -67,6 +67,14 @@
                             @endif
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.option.fields.longtext') }}
+                        </th>
+                        <td>
+                            {!! $option->longtext !!}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

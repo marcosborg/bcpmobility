@@ -209,6 +209,8 @@ return [
             'deleted_at_helper' => ' ',
             'lang'              => 'Lang',
             'lang_helper'       => ' ',
+            'longtext'          => 'Longtext',
+            'longtext_helper'   => ' ',
         ],
     ],
     'contact' => [
