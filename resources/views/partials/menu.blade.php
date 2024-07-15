@@ -206,6 +206,147 @@
                         </ul>
                     </li>
                 @endcan
+                @can('cars_menu_access')
+                    <li class="nav-item has-treeview {{ request()->is("admin/car-brands*") ? "menu-open" : "" }} {{ request()->is("admin/car-models*") ? "menu-open" : "" }} {{ request()->is("admin/car-items*") ? "menu-open" : "" }} {{ request()->is("admin/carmanagements*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/car-brands*") ? "active" : "" }} {{ request()->is("admin/car-models*") ? "active" : "" }} {{ request()->is("admin/car-items*") ? "active" : "" }} {{ request()->is("admin/carmanagements*") ? "active" : "" }}" href="#">
+                            <i class="fa-fw nav-icon fas fa-car">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.carsMenu.title') }}
+                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('car_brand_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.car-brands.index") }}" class="nav-link {{ request()->is("admin/car-brands") || request()->is("admin/car-brands/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-car">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.carBrand.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('car_model_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.car-models.index") }}" class="nav-link {{ request()->is("admin/car-models") || request()->is("admin/car-models/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-circle">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.carModel.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('car_item_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.car-items.index") }}" class="nav-link {{ request()->is("admin/car-items") || request()->is("admin/car-items/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-car">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.carItem.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('carmanagement_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.carmanagements.index") }}" class="nav-link {{ request()->is("admin/carmanagements") || request()->is("admin/carmanagements/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-calendar-alt">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.carmanagement.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
+                @can('tvde_menu_access')
+                    <li class="nav-item has-treeview {{ request()->is("admin/drivers*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/drivers*") ? "active" : "" }} {{ request()->is("admin/*") ? "active" : "" }}" href="#">
+                            <i class="fa-fw nav-icon fas fa-bars">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.tvdeMenu.title') }}
+                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('driver_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.drivers.index") }}" class="nav-link {{ request()->is("admin/drivers") || request()->is("admin/drivers/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-address-card">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.driver.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('week_management_access')
+                                <li class="nav-item has-treeview {{ request()->is("admin/years*") ? "menu-open" : "" }} {{ request()->is("admin/months*") ? "menu-open" : "" }} {{ request()->is("admin/weeks*") ? "menu-open" : "" }}">
+                                    <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/years*") ? "active" : "" }} {{ request()->is("admin/months*") ? "active" : "" }} {{ request()->is("admin/weeks*") ? "active" : "" }}" href="#">
+                                        <i class="fa-fw nav-icon far fa-calendar-alt">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.weekManagement.title') }}
+                                            <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                                        </p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        @can('year_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.years.index") }}" class="nav-link {{ request()->is("admin/years") || request()->is("admin/years/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-calendar-alt">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.year.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('month_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.months.index") }}" class="nav-link {{ request()->is("admin/months") || request()->is("admin/months/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-calendar-alt">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.month.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                        @can('week_access')
+                                            <li class="nav-item">
+                                                <a href="{{ route("admin.weeks.index") }}" class="nav-link {{ request()->is("admin/weeks") || request()->is("admin/weeks/*") ? "active" : "" }}">
+                                                    <i class="fa-fw nav-icon far fa-calendar-alt">
+
+                                                    </i>
+                                                    <p>
+                                                        {{ trans('cruds.week.title') }}
+                                                    </p>
+                                                </a>
+                                            </li>
+                                        @endcan
+                                    </ul>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
                 <li class="nav-item">
                     <a href="{{ route("admin.systemCalendar") }}" class="nav-link {{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "active" : "" }}">
                         <i class="fas fa-fw fa-calendar nav-icon">

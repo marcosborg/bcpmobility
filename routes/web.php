@@ -80,6 +80,42 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('abouts/ckmedia', 'AboutController@storeCKEditorImages')->name('abouts.storeCKEditorImages');
     Route::resource('abouts', 'AboutController');
 
+    // Car Brand
+    Route::delete('car-brands/destroy', 'CarBrandController@massDestroy')->name('car-brands.massDestroy');
+    Route::resource('car-brands', 'CarBrandController');
+
+    // Car Model
+    Route::delete('car-models/destroy', 'CarModelController@massDestroy')->name('car-models.massDestroy');
+    Route::resource('car-models', 'CarModelController');
+
+    // Car Item
+    Route::delete('car-items/destroy', 'CarItemController@massDestroy')->name('car-items.massDestroy');
+    Route::post('car-items/media', 'CarItemController@storeMedia')->name('car-items.storeMedia');
+    Route::post('car-items/ckmedia', 'CarItemController@storeCKEditorImages')->name('car-items.storeCKEditorImages');
+    Route::resource('car-items', 'CarItemController');
+
+    // Driver
+    Route::delete('drivers/destroy', 'DriverController@massDestroy')->name('drivers.massDestroy');
+    Route::post('drivers/media', 'DriverController@storeMedia')->name('drivers.storeMedia');
+    Route::post('drivers/ckmedia', 'DriverController@storeCKEditorImages')->name('drivers.storeCKEditorImages');
+    Route::resource('drivers', 'DriverController');
+
+    // Year
+    Route::delete('years/destroy', 'YearController@massDestroy')->name('years.massDestroy');
+    Route::resource('years', 'YearController');
+
+    // Month
+    Route::delete('months/destroy', 'MonthController@massDestroy')->name('months.massDestroy');
+    Route::resource('months', 'MonthController');
+
+    // Week
+    Route::delete('weeks/destroy', 'WeekController@massDestroy')->name('weeks.massDestroy');
+    Route::resource('weeks', 'WeekController');
+
+    // Carmanagement
+    Route::delete('carmanagements/destroy', 'CarmanagementController@massDestroy')->name('carmanagements.massDestroy');
+    Route::resource('carmanagements', 'CarmanagementController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
