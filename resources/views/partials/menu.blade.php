@@ -266,6 +266,18 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('damage_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.damages.index") }}" class="nav-link {{ request()->is("admin/damages") || request()->is("admin/damages/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-car">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.damage.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan

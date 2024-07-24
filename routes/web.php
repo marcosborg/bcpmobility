@@ -116,6 +116,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('carmanagements/destroy', 'CarmanagementController@massDestroy')->name('carmanagements.massDestroy');
     Route::resource('carmanagements', 'CarmanagementController');
 
+    // Damage
+    Route::delete('damages/destroy', 'DamageController@massDestroy')->name('damages.massDestroy');
+    Route::post('damages/media', 'DamageController@storeMedia')->name('damages.storeMedia');
+    Route::post('damages/ckmedia', 'DamageController@storeCKEditorImages')->name('damages.storeCKEditorImages');
+    Route::resource('damages', 'DamageController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

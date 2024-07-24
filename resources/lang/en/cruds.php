@@ -533,5 +533,27 @@ return [
             'end_date_helper'   => ' ',
         ],
     ],
+    'damage' => [
+        'title'          => 'Damage',
+        'title_singular' => 'Damage',
+        'fields'         => [
+            'id'                     => 'ID',
+            'id_helper'              => ' ',
+            'positioning_map'        => 'Car',
+            'positioning_map_helper' => ' ',
+            'photos'                 => 'Photos',
+            'photos_helper'          => ' ',
+            'description'            => 'Description',
+            'description_helper'     => ' ',
+            'created_at'             => 'Created at',
+            'created_at_helper'      => ' ',
+            'updated_at'             => 'Updated at',
+            'updated_at_helper'      => ' ',
+            'deleted_at'             => 'Deleted at',
+            'deleted_at_helper'      => ' ',
+            'cost'                   => 'Cost',
+            'cost_helper'            => ' ',
+        ],
+    ],
 
 ];
