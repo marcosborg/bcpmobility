@@ -43,8 +43,8 @@ class CarItemController extends Controller
     {
         $carItem = CarItem::create($request->all());
 
-        foreach ($request->input('docucments', []) as $file) {
-            $carItem->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('docucments');
+        foreach ($request->input('documents', []) as $file) {
+            $carItem->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('documents');
         }
 
         if ($media = $request->input('ck-media', false)) {
@@ -71,17 +71,17 @@ class CarItemController extends Controller
     {
         $carItem->update($request->all());
 
-        if (count($carItem->docucments) > 0) {
-            foreach ($carItem->docucments as $media) {
-                if (! in_array($media->file_name, $request->input('docucments', []))) {
+        if (count($carItem->documents) > 0) {
+            foreach ($carItem->documents as $media) {
+                if (! in_array($media->file_name, $request->input('documents', []))) {
                     $media->delete();
                 }
             }
         }
-        $media = $carItem->docucments->pluck('file_name')->toArray();
-        foreach ($request->input('docucments', []) as $file) {
+        $media = $carItem->documents->pluck('file_name')->toArray();
+        foreach ($request->input('documents', []) as $file) {
             if (count($media) === 0 || ! in_array($file, $media)) {
-                $carItem->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('docucments');
+                $carItem->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('documents');
             }
         }
 

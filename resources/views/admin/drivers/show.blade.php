@@ -171,6 +171,62 @@
                             @endforeach
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.weekly_rent_value_low_season') }}
+                        </th>
+                        <td>
+                            {{ $driver->weekly_rent_value_low_season }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.extra_km_value_low_season') }}
+                        </th>
+                        <td>
+                            {{ $driver->extra_km_value_low_season }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.weekly_rent_value_high_season') }}
+                        </th>
+                        <td>
+                            {{ $driver->weekly_rent_value_high_season }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.extra_km_value_high_season') }}
+                        </th>
+                        <td>
+                            {{ $driver->extra_km_value_high_season }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.agreed_deposit') }}
+                        </th>
+                        <td>
+                            {{ $driver->agreed_deposit }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.driver_service_vat') }}
+                        </th>
+                        <td>
+                            {{ $driver->driver_service_vat }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.driver_withholding_tax') }}
+                        </th>
+                        <td>
+                            {{ $driver->driver_withholding_tax }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

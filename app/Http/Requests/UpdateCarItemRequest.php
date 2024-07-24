@@ -35,7 +35,19 @@ class UpdateCarItemRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'docucments' => [
+            'motorization' => [
+                'string',
+                'nullable',
+            ],
+            'chassis_number' => [
+                'string',
+                'nullable',
+            ],
+            'internal_name' => [
+                'string',
+                'nullable',
+            ],
+            'documents' => [
                 'array',
             ],
         ];

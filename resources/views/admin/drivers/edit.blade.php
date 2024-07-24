@@ -160,6 +160,62 @@
                 <span class="help-block">{{ trans('cruds.driver.fields.documents_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="weekly_rent_value_low_season">{{ trans('cruds.driver.fields.weekly_rent_value_low_season') }}</label>
+                <input class="form-control {{ $errors->has('weekly_rent_value_low_season') ? 'is-invalid' : '' }}" type="number" name="weekly_rent_value_low_season" id="weekly_rent_value_low_season" value="{{ old('weekly_rent_value_low_season', $driver->weekly_rent_value_low_season) }}" step="0.01">
+                @if($errors->has('weekly_rent_value_low_season'))
+                    <span class="text-danger">{{ $errors->first('weekly_rent_value_low_season') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.weekly_rent_value_low_season_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="extra_km_value_low_season">{{ trans('cruds.driver.fields.extra_km_value_low_season') }}</label>
+                <input class="form-control {{ $errors->has('extra_km_value_low_season') ? 'is-invalid' : '' }}" type="number" name="extra_km_value_low_season" id="extra_km_value_low_season" value="{{ old('extra_km_value_low_season', $driver->extra_km_value_low_season) }}" step="0.01">
+                @if($errors->has('extra_km_value_low_season'))
+                    <span class="text-danger">{{ $errors->first('extra_km_value_low_season') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.extra_km_value_low_season_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="weekly_rent_value_high_season">{{ trans('cruds.driver.fields.weekly_rent_value_high_season') }}</label>
+                <input class="form-control {{ $errors->has('weekly_rent_value_high_season') ? 'is-invalid' : '' }}" type="number" name="weekly_rent_value_high_season" id="weekly_rent_value_high_season" value="{{ old('weekly_rent_value_high_season', $driver->weekly_rent_value_high_season) }}" step="0.01">
+                @if($errors->has('weekly_rent_value_high_season'))
+                    <span class="text-danger">{{ $errors->first('weekly_rent_value_high_season') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.weekly_rent_value_high_season_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="extra_km_value_high_season">{{ trans('cruds.driver.fields.extra_km_value_high_season') }}</label>
+                <input class="form-control {{ $errors->has('extra_km_value_high_season') ? 'is-invalid' : '' }}" type="number" name="extra_km_value_high_season" id="extra_km_value_high_season" value="{{ old('extra_km_value_high_season', $driver->extra_km_value_high_season) }}" step="0.01">
+                @if($errors->has('extra_km_value_high_season'))
+                    <span class="text-danger">{{ $errors->first('extra_km_value_high_season') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.extra_km_value_high_season_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="agreed_deposit">{{ trans('cruds.driver.fields.agreed_deposit') }}</label>
+                <input class="form-control {{ $errors->has('agreed_deposit') ? 'is-invalid' : '' }}" type="number" name="agreed_deposit" id="agreed_deposit" value="{{ old('agreed_deposit', $driver->agreed_deposit) }}" step="0.01">
+                @if($errors->has('agreed_deposit'))
+                    <span class="text-danger">{{ $errors->first('agreed_deposit') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.agreed_deposit_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="driver_service_vat">{{ trans('cruds.driver.fields.driver_service_vat') }}</label>
+                <input class="form-control {{ $errors->has('driver_service_vat') ? 'is-invalid' : '' }}" type="number" name="driver_service_vat" id="driver_service_vat" value="{{ old('driver_service_vat', $driver->driver_service_vat) }}" step="1">
+                @if($errors->has('driver_service_vat'))
+                    <span class="text-danger">{{ $errors->first('driver_service_vat') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.driver_service_vat_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="driver_withholding_tax">{{ trans('cruds.driver.fields.driver_withholding_tax') }}</label>
+                <input class="form-control {{ $errors->has('driver_withholding_tax') ? 'is-invalid' : '' }}" type="number" name="driver_withholding_tax" id="driver_withholding_tax" value="{{ old('driver_withholding_tax', $driver->driver_withholding_tax) }}" step="1">
+                @if($errors->has('driver_withholding_tax'))
+                    <span class="text-danger">{{ $errors->first('driver_withholding_tax') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.driver_withholding_tax_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

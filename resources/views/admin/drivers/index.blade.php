@@ -80,6 +80,27 @@
                             {{ trans('cruds.driver.fields.documents') }}
                         </th>
                         <th>
+                            {{ trans('cruds.driver.fields.weekly_rent_value_low_season') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.driver.fields.extra_km_value_low_season') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.driver.fields.weekly_rent_value_high_season') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.driver.fields.extra_km_value_high_season') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.driver.fields.agreed_deposit') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.driver.fields.driver_service_vat') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.driver.fields.driver_withholding_tax') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -150,6 +171,27 @@
                                         {{ trans('global.view_file') }}
                                     </a>
                                 @endforeach
+                            </td>
+                            <td>
+                                {{ $driver->weekly_rent_value_low_season ?? '' }}
+                            </td>
+                            <td>
+                                {{ $driver->extra_km_value_low_season ?? '' }}
+                            </td>
+                            <td>
+                                {{ $driver->weekly_rent_value_high_season ?? '' }}
+                            </td>
+                            <td>
+                                {{ $driver->extra_km_value_high_season ?? '' }}
+                            </td>
+                            <td>
+                                {{ $driver->agreed_deposit ?? '' }}
+                            </td>
+                            <td>
+                                {{ $driver->driver_service_vat ?? '' }}
+                            </td>
+                            <td>
+                                {{ $driver->driver_withholding_tax ?? '' }}
                             </td>
                             <td>
                                 @can('driver_show')

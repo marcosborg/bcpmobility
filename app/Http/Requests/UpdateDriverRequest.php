@@ -84,6 +84,18 @@ class UpdateDriverRequest extends FormRequest
             'documents' => [
                 'array',
             ],
+            'driver_service_vat' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
+            'driver_withholding_tax' => [
+                'nullable',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
         ];
     }
 }

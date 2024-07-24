@@ -38,7 +38,22 @@
                             {{ trans('cruds.carItem.fields.license_plate') }}
                         </th>
                         <th>
-                            {{ trans('cruds.carItem.fields.docucments') }}
+                            {{ trans('cruds.carItem.fields.motorization') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.carItem.fields.chassis_number') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.carItem.fields.internal_name') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.carItem.fields.documents') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.carItem.fields.cost_per_km') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.carItem.fields.monthly_income') }}
                         </th>
                         <th>
                             &nbsp;
@@ -67,11 +82,26 @@
                                 {{ $carItem->license_plate ?? '' }}
                             </td>
                             <td>
-                                @foreach($carItem->docucments as $key => $media)
+                                {{ $carItem->motorization ?? '' }}
+                            </td>
+                            <td>
+                                {{ $carItem->chassis_number ?? '' }}
+                            </td>
+                            <td>
+                                {{ $carItem->internal_name ?? '' }}
+                            </td>
+                            <td>
+                                @foreach($carItem->documents as $key => $media)
                                     <a href="{{ $media->getUrl() }}" target="_blank">
                                         {{ trans('global.view_file') }}
                                     </a>
                                 @endforeach
+                            </td>
+                            <td>
+                                {{ $carItem->cost_per_km ?? '' }}
+                            </td>
+                            <td>
+                                {{ $carItem->monthly_income ?? '' }}
                             </td>
                             <td>
                                 @can('car_item_show')

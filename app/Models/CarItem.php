@@ -17,7 +17,7 @@ class CarItem extends Model implements HasMedia
     public $table = 'car_items';
 
     protected $appends = [
-        'docucments',
+        'documents',
     ];
 
     protected $dates = [
@@ -31,6 +31,11 @@ class CarItem extends Model implements HasMedia
         'car_model_id',
         'year',
         'license_plate',
+        'motorization',
+        'chassis_number',
+        'internal_name',
+        'cost_per_km',
+        'monthly_income',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -57,8 +62,8 @@ class CarItem extends Model implements HasMedia
         return $this->belongsTo(CarModel::class, 'car_model_id');
     }
 
-    public function getDocucmentsAttribute()
+    public function getDocumentsAttribute()
     {
-        return $this->getMedia('docucments');
+        return $this->getMedia('documents');
     }
 }
