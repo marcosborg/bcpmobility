@@ -32,6 +32,8 @@ class Hero extends Model implements HasMedia
         'text',
         'button',
         'link',
+        'button_2',
+        'link_2',
         'created_at',
         'updated_at',
         'deleted_at',

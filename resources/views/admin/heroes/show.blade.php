@@ -65,6 +65,22 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.hero.fields.button_2') }}
+                        </th>
+                        <td>
+                            {{ $hero->button_2 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.hero.fields.link_2') }}
+                        </th>
+                        <td>
+                            {{ $hero->link_2 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.hero.fields.image') }}
                         </th>
                         <td>

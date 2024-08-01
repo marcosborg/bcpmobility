@@ -119,6 +119,10 @@ return [
             'deleted_at_helper' => ' ',
             'lang'              => 'Lang',
             'lang_helper'       => ' ',
+            'button_2'          => 'Button 2',
+            'button_2_helper'   => ' ',
+            'link_2'            => 'Link 2',
+            'link_2_helper'     => ' ',
         ],
     ],
     'brand' => [

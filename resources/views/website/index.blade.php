@@ -38,23 +38,6 @@
 
 </section><!-- End About Section -->
 
-<!-- ======= Featured Services Section ======= -->
-<section id="featured-services" class="featured-services">
-    <div class="container">
-        <div class="row gy-4">
-            @foreach (\App\Models\Service::all() as $item)
-            <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
-                <div class="service-item position-relative text-center">
-                    <div class="icon">{!! $item->icon !!}</div>
-                    <h4><a href="" class="stretched-link">{{ $item->title }}</a></h4>
-                    <p>{{ $item->text }}</p>
-                </div>
-            </div><!-- End Service Item -->
-            @endforeach
-        </div>
-    </div>
-</section><!-- End Featured Services Section -->
-
 <!-- ======= Call To Action Section ======= -->
 <section id="cta" class="cta">
     @foreach (\App\Models\Ctum::all() as $item)

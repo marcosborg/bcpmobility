@@ -64,6 +64,12 @@ class HeroController extends Controller
             $table->editColumn('link', function ($row) {
                 return $row->link ? $row->link : '';
             });
+            $table->editColumn('button_2', function ($row) {
+                return $row->button_2 ? $row->button_2 : '';
+            });
+            $table->editColumn('link_2', function ($row) {
+                return $row->link_2 ? $row->link_2 : '';
+            });
             $table->editColumn('image', function ($row) {
                 if ($photo = $row->image) {
                     return sprintf(

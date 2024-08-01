@@ -55,6 +55,22 @@
                 <span class="help-block">{{ trans('cruds.hero.fields.link_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="button_2">{{ trans('cruds.hero.fields.button_2') }}</label>
+                <input class="form-control {{ $errors->has('button_2') ? 'is-invalid' : '' }}" type="text" name="button_2" id="button_2" value="{{ old('button_2', $hero->button_2) }}">
+                @if($errors->has('button_2'))
+                    <span class="text-danger">{{ $errors->first('button_2') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.hero.fields.button_2_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="link_2">{{ trans('cruds.hero.fields.link_2') }}</label>
+                <input class="form-control {{ $errors->has('link_2') ? 'is-invalid' : '' }}" type="text" name="link_2" id="link_2" value="{{ old('link_2', $hero->link_2) }}">
+                @if($errors->has('link_2'))
+                    <span class="text-danger">{{ $errors->first('link_2') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.hero.fields.link_2_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label for="image">{{ trans('cruds.hero.fields.image') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('image') ? 'is-invalid' : '' }}" id="image-dropzone">
                 </div>

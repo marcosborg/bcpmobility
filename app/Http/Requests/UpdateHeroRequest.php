@@ -37,6 +37,14 @@ class UpdateHeroRequest extends FormRequest
                 'string',
                 'nullable',
             ],
+            'button_2' => [
+                'string',
+                'nullable',
+            ],
+            'link_2' => [
+                'string',
+                'nullable',
+            ],
         ];
     }
 }

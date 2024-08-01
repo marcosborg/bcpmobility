@@ -40,6 +40,12 @@
                         {{ trans('cruds.hero.fields.link') }}
                     </th>
                     <th>
+                        {{ trans('cruds.hero.fields.button_2') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.hero.fields.link_2') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.hero.fields.image') }}
                     </th>
                     <th>
@@ -59,6 +65,12 @@
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -135,6 +147,8 @@
 { data: 'text', name: 'text' },
 { data: 'button', name: 'button' },
 { data: 'link', name: 'link' },
+{ data: 'button_2', name: 'button_2' },
+{ data: 'link_2', name: 'link_2' },
 { data: 'image', name: 'image', sortable: false, searchable: false },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
