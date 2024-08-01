@@ -44,10 +44,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('brands/ckmedia', 'BrandController@storeCKEditorImages')->name('brands.storeCKEditorImages');
     Route::resource('brands', 'BrandController');
 
-    // Services
-    Route::delete('services/destroy', 'ServicesController@massDestroy')->name('services.massDestroy');
-    Route::resource('services', 'ServicesController');
-
     // Cta
     Route::delete('cta/destroy', 'CtaController@massDestroy')->name('cta.massDestroy');
     Route::post('cta/media', 'CtaController@storeMedia')->name('cta.storeMedia');
