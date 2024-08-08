@@ -132,6 +132,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', 'ContentPageController');
 
+    // Driver Agreement
+    Route::delete('driver-agreements/destroy', 'DriverAgreementController@massDestroy')->name('driver-agreements.massDestroy');
+    Route::resource('driver-agreements', 'DriverAgreementController');
+
+    // Vehicle Expenses
+    Route::delete('vehicle-expenses/destroy', 'VehicleExpensesController@massDestroy')->name('vehicle-expenses.massDestroy');
+    Route::post('vehicle-expenses/media', 'VehicleExpensesController@storeMedia')->name('vehicle-expenses.storeMedia');
+    Route::post('vehicle-expenses/ckmedia', 'VehicleExpensesController@storeCKEditorImages')->name('vehicle-expenses.storeCKEditorImages');
+    Route::resource('vehicle-expenses', 'VehicleExpensesController');
+
+    // Vehicle Documents
+    Route::delete('vehicle-documents/destroy', 'VehicleDocumentsController@massDestroy')->name('vehicle-documents.massDestroy');
+    Route::post('vehicle-documents/media', 'VehicleDocumentsController@storeMedia')->name('vehicle-documents.storeMedia');
+    Route::post('vehicle-documents/ckmedia', 'VehicleDocumentsController@storeCKEditorImages')->name('vehicle-documents.storeCKEditorImages');
+    Route::resource('vehicle-documents', 'VehicleDocumentsController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

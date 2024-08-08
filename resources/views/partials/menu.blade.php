@@ -317,6 +317,30 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('vehicle_expense_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.vehicle-expenses.index") }}" class="nav-link {{ request()->is("admin/vehicle-expenses") || request()->is("admin/vehicle-expenses/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-euro-sign">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.vehicleExpense.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('vehicle_document_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.vehicle-documents.index") }}" class="nav-link {{ request()->is("admin/vehicle-documents") || request()->is("admin/vehicle-documents/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-file">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.vehicleDocument.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan
@@ -393,6 +417,18 @@
                                             </li>
                                         @endcan
                                     </ul>
+                                </li>
+                            @endcan
+                            @can('driver_agreement_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.driver-agreements.index") }}" class="nav-link {{ request()->is("admin/driver-agreements") || request()->is("admin/driver-agreements/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-user-check">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.driverAgreement.title') }}
+                                        </p>
+                                    </a>
                                 </li>
                             @endcan
                         </ul>
