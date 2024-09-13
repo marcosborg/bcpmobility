@@ -1,7 +1,7 @@
 <!-- ======= Services Section ======= -->
 <section id="services" class="services">
     <div class="container" data-aos="fade-up">
-        <div class="row gy-5">
+        <div class="row gy-5 justify-content-center">
             @foreach ($services as $item)
             <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                 <div class="service-item">
