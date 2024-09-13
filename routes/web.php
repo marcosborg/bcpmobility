@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', 'WebsiteController@index');
+
 Route::get('services/{option_id}/{slug}', 'OptionsController@index');
 
 Route::get('/home', function () {
