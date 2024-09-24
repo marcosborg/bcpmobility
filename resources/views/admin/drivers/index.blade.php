@@ -101,6 +101,9 @@
                             {{ trans('cruds.driver.fields.driver_withholding_tax') }}
                         </th>
                         <th>
+                            {{ trans('cruds.driver.fields.fuel_cards') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -192,6 +195,11 @@
                             </td>
                             <td>
                                 {{ $driver->driver_withholding_tax ?? '' }}
+                            </td>
+                            <td>
+                                @foreach($driver->fuel_cards as $key => $item)
+                                    <span class="badge badge-info">{{ $item->card_number }}</span>
+                                @endforeach
                             </td>
                             <td>
                                 @can('driver_show')

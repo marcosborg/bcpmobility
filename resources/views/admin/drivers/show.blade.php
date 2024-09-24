@@ -227,6 +227,16 @@
                             {{ $driver->driver_withholding_tax }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.driver.fields.fuel_cards') }}
+                        </th>
+                        <td>
+                            @foreach($driver->fuel_cards as $key => $fuel_cards)
+                                <span class="label label-info">{{ $fuel_cards->card_number }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

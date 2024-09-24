@@ -195,8 +195,8 @@
                     </li>
                 @endcan
                 @can('cars_menu_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/car-brands*") ? "menu-open" : "" }} {{ request()->is("admin/car-models*") ? "menu-open" : "" }} {{ request()->is("admin/car-items*") ? "menu-open" : "" }} {{ request()->is("admin/carmanagements*") ? "menu-open" : "" }} {{ request()->is("admin/damages*") ? "menu-open" : "" }} {{ request()->is("admin/vehicle-expenses*") ? "menu-open" : "" }} {{ request()->is("admin/vehicle-maintenances*") ? "menu-open" : "" }} {{ request()->is("admin/vehicle-documents*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/car-brands*") ? "active" : "" }} {{ request()->is("admin/car-models*") ? "active" : "" }} {{ request()->is("admin/car-items*") ? "active" : "" }} {{ request()->is("admin/carmanagements*") ? "active" : "" }} {{ request()->is("admin/damages*") ? "active" : "" }} {{ request()->is("admin/vehicle-expenses*") ? "active" : "" }} {{ request()->is("admin/vehicle-maintenances*") ? "active" : "" }} {{ request()->is("admin/vehicle-documents*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("admin/car-brands*") ? "menu-open" : "" }} {{ request()->is("admin/car-models*") ? "menu-open" : "" }} {{ request()->is("admin/car-items*") ? "menu-open" : "" }} {{ request()->is("admin/carmanagements*") ? "menu-open" : "" }} {{ request()->is("admin/damages*") ? "menu-open" : "" }} {{ request()->is("admin/vehicle-expenses*") ? "menu-open" : "" }} {{ request()->is("admin/vehicle-maintenances*") ? "menu-open" : "" }} {{ request()->is("admin/vehicle-documents*") ? "menu-open" : "" }} {{ request()->is("admin/maintenances*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/car-brands*") ? "active" : "" }} {{ request()->is("admin/car-models*") ? "active" : "" }} {{ request()->is("admin/car-items*") ? "active" : "" }} {{ request()->is("admin/carmanagements*") ? "active" : "" }} {{ request()->is("admin/damages*") ? "active" : "" }} {{ request()->is("admin/vehicle-expenses*") ? "active" : "" }} {{ request()->is("admin/vehicle-maintenances*") ? "active" : "" }} {{ request()->is("admin/vehicle-documents*") ? "active" : "" }} {{ request()->is("admin/maintenances*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-car">
 
                             </i>
@@ -302,12 +302,24 @@
                                     </a>
                                 </li>
                             @endcan
+                            @can('maintenance_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.maintenances.index") }}" class="nav-link {{ request()->is("admin/maintenances") || request()->is("admin/maintenances/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-car">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.maintenance.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan
                 @can('tvde_menu_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/activities*") ? "menu-open" : "" }} {{ request()->is("admin/rentals*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/activities*") ? "active" : "" }} {{ request()->is("admin/rentals*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-bars">
 
                             </i>
@@ -395,12 +407,36 @@
                                     </ul>
                                 </li>
                             @endcan
+                            @can('activity_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.activities.index") }}" class="nav-link {{ request()->is("admin/activities") || request()->is("admin/activities/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon far fa-calendar-check">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.activity.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('rental_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.rentals.index") }}" class="nav-link {{ request()->is("admin/rentals") || request()->is("admin/rentals/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-car">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.rental.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
                         </ul>
                     </li>
                 @endcan
                 @can('driver_menu_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/drivers*") ? "menu-open" : "" }} {{ request()->is("admin/parking-tickets*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/drivers*") ? "active" : "" }} {{ request()->is("admin/parking-tickets*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("admin/drivers*") ? "menu-open" : "" }} {{ request()->is("admin/parking-tickets*") ? "menu-open" : "" }} {{ request()->is("admin/fuel-cards*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/drivers*") ? "active" : "" }} {{ request()->is("admin/parking-tickets*") ? "active" : "" }} {{ request()->is("admin/fuel-cards*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-user">
 
                             </i>
@@ -430,6 +466,18 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.parkingTicket.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('fuel_card_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.fuel-cards.index") }}" class="nav-link {{ request()->is("admin/fuel-cards") || request()->is("admin/fuel-cards/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-burn">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.fuelCard.title') }}
                                         </p>
                                     </a>
                                 </li>

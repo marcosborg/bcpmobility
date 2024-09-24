@@ -163,6 +163,24 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('vehicle-maintenances/ckmedia', 'VehicleMaintenanceController@storeCKEditorImages')->name('vehicle-maintenances.storeCKEditorImages');
     Route::resource('vehicle-maintenances', 'VehicleMaintenanceController');
 
+    // Fuel Cards
+    Route::delete('fuel-cards/destroy', 'FuelCardsController@massDestroy')->name('fuel-cards.massDestroy');
+    Route::resource('fuel-cards', 'FuelCardsController');
+
+    // Activity
+    Route::delete('activities/destroy', 'ActivityController@massDestroy')->name('activities.massDestroy');
+    Route::resource('activities', 'ActivityController');
+
+    // Rental
+    Route::delete('rentals/destroy', 'RentalController@massDestroy')->name('rentals.massDestroy');
+    Route::resource('rentals', 'RentalController');
+
+    // Maintenance
+    Route::delete('maintenances/destroy', 'MaintenanceController@massDestroy')->name('maintenances.massDestroy');
+    Route::post('maintenances/media', 'MaintenanceController@storeMedia')->name('maintenances.storeMedia');
+    Route::post('maintenances/ckmedia', 'MaintenanceController@storeCKEditorImages')->name('maintenances.storeCKEditorImages');
+    Route::resource('maintenances', 'MaintenanceController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

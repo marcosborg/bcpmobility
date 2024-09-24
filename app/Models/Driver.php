@@ -99,4 +99,9 @@ class Driver extends Model implements HasMedia
     {
         return $this->getMedia('documents');
     }
+
+    public function fuel_cards()
+    {
+        return $this->belongsToMany(FuelCard::class);
+    }
 }

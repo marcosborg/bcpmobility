@@ -215,6 +215,22 @@
                 <span class="help-block">{{ trans('cruds.driver.fields.driver_withholding_tax_helper') }}</span>
             </div>
             <div class="form-group">
+                <label for="fuel_cards">{{ trans('cruds.driver.fields.fuel_cards') }}</label>
+                <div style="padding-bottom: 4px">
+                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                </div>
+                <select class="form-control select2 {{ $errors->has('fuel_cards') ? 'is-invalid' : '' }}" name="fuel_cards[]" id="fuel_cards" multiple>
+                    @foreach($fuel_cards as $id => $fuel_card)
+                        <option value="{{ $id }}" {{ in_array($id, old('fuel_cards', [])) ? 'selected' : '' }}>{{ $fuel_card }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('fuel_cards'))
+                    <span class="text-danger">{{ $errors->first('fuel_cards') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.driver.fields.fuel_cards_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyDriverRequest;
 use App\Http\Requests\StoreDriverRequest;
 use App\Http\Requests\UpdateDriverRequest;
 use App\Models\Driver;
+use App\Models\FuelCard;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class DriverController extends Controller
     {
         abort_if(Gate::denies('driver_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $drivers = Driver::with(['user', 'media'])->get();
+        $drivers = Driver::with(['user', 'fuel_cards', 'media'])->get();
 
         return view('admin.drivers.index', compact('drivers'));
     }
@@ -33,13 +34,15 @@ class DriverController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.drivers.create', compact('users'));
+        $fuel_cards = FuelCard::pluck('card_number', 'id');
+
+        return view('admin.drivers.create', compact('fuel_cards', 'users'));
     }
 
     public function store(StoreDriverRequest $request)
     {
         $driver = Driver::create($request->all());
-
+        $driver->fuel_cards()->sync($request->input('fuel_cards', []));
         foreach ($request->input('documents', []) as $file) {
             $driver->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('documents');
         }
@@ -57,15 +60,17 @@ class DriverController extends Controller
 
         $users = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $driver->load('user');
+        $fuel_cards = FuelCard::pluck('card_number', 'id');
 
-        return view('admin.drivers.edit', compact('driver', 'users'));
+        $driver->load('user', 'fuel_cards');
+
+        return view('admin.drivers.edit', compact('driver', 'fuel_cards', 'users'));
     }
 
     public function update(UpdateDriverRequest $request, Driver $driver)
     {
         $driver->update($request->all());
-
+        $driver->fuel_cards()->sync($request->input('fuel_cards', []));
         if (count($driver->documents) > 0) {
             foreach ($driver->documents as $media) {
                 if (! in_array($media->file_name, $request->input('documents', []))) {
@@ -87,7 +92,7 @@ class DriverController extends Controller
     {
         abort_if(Gate::denies('driver_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $driver->load('user');
+        $driver->load('user', 'fuel_cards');
 
         return view('admin.drivers.show', compact('driver'));
     }
