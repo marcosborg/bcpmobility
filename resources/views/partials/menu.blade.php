@@ -318,8 +318,8 @@
                     </li>
                 @endcan
                 @can('tvde_menu_access')
-                    <li class="nav-item has-treeview {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/activities*") ? "menu-open" : "" }} {{ request()->is("admin/rentals*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/activities*") ? "active" : "" }} {{ request()->is("admin/rentals*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/*") ? "menu-open" : "" }} {{ request()->is("admin/activities*") ? "menu-open" : "" }} {{ request()->is("admin/rentals*") ? "menu-open" : "" }} {{ request()->is("admin/receipts*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/*") ? "active" : "" }} {{ request()->is("admin/activities*") ? "active" : "" }} {{ request()->is("admin/rentals*") ? "active" : "" }} {{ request()->is("admin/receipts*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-bars">
 
                             </i>
@@ -427,6 +427,18 @@
                                         </i>
                                         <p>
                                             {{ trans('cruds.rental.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('receipt_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.receipts.index") }}" class="nav-link {{ request()->is("admin/receipts") || request()->is("admin/receipts/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-file-invoice-dollar">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.receipt.title') }}
                                         </p>
                                     </a>
                                 </li>

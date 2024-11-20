@@ -37,6 +37,9 @@
                         {{ trans('cruds.rental.fields.week') }}
                     </th>
                     <th>
+                        {{ trans('cruds.rental.fields.rental_type') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -65,6 +68,14 @@
                             <option value>{{ trans('global.all') }}</option>
                             @foreach($weeks as $key => $item)
                                 <option value="{{ $item->from }}">{{ $item->from }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
+                        <select class="search" strict="true">
+                            <option value>{{ trans('global.all') }}</option>
+                            @foreach(App\Models\Rental::RENTAL_TYPE_RADIO as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
                             @endforeach
                         </select>
                     </td>
@@ -128,6 +139,7 @@
 { data: 'extra_km', name: 'extra_km' },
 { data: 'driver_name', name: 'driver.name' },
 { data: 'week_from', name: 'week.from' },
+{ data: 'rental_type', name: 'rental_type' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

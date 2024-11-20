@@ -24,9 +24,16 @@ class Rental extends Model
         'extra_km',
         'driver_id',
         'week_id',
+        'rental_type',
         'created_at',
         'updated_at',
         'deleted_at',
+    ];
+
+    public const RENTAL_TYPE_RADIO = [
+        'Viatura própria'     => 'Viatura própria',
+        'Locação operacional' => 'Locação operacional (renting)',
+        'Locação financeira'  => 'Locação financeira (leasing)',
     ];
 
     protected function serializeDate(DateTimeInterface $date)

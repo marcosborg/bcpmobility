@@ -181,6 +181,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('maintenances/ckmedia', 'MaintenanceController@storeCKEditorImages')->name('maintenances.storeCKEditorImages');
     Route::resource('maintenances', 'MaintenanceController');
 
+    // Receipt
+    Route::delete('receipts/destroy', 'ReceiptController@massDestroy')->name('receipts.massDestroy');
+    Route::post('receipts/media', 'ReceiptController@storeMedia')->name('receipts.storeMedia');
+    Route::post('receipts/ckmedia', 'ReceiptController@storeCKEditorImages')->name('receipts.storeCKEditorImages');
+    Route::resource('receipts', 'ReceiptController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

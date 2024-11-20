@@ -59,6 +59,10 @@ class RentalController extends Controller
                 return $row->week ? $row->week->from : '';
             });
 
+            $table->editColumn('rental_type', function ($row) {
+                return $row->rental_type ? Rental::RENTAL_TYPE_RADIO[$row->rental_type] : '';
+            });
+
             $table->rawColumns(['actions', 'placeholder', 'driver', 'week']);
 
             return $table->make(true);

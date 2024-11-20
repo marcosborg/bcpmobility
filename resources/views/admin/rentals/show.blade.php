@@ -55,6 +55,14 @@
                             {{ $rental->week->from ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.rental.fields.rental_type') }}
+                        </th>
+                        <td>
+                            {{ App\Models\Rental::RENTAL_TYPE_RADIO[$rental->rental_type] ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">
